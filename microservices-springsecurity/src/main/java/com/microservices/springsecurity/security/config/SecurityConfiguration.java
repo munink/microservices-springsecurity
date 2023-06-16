@@ -18,14 +18,23 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((authz) -> authz
+                // Need for POST access to avoid 403 - Forbidden exception
+                .csrf((csrf) -> csrf.disable());
+               /* .authorizeHttpRequests((authz) -> authz
                         // .anyRequest().authenticated()
-                        .requestMatchers("/api/employee").permitAll()
+                        .requestMatchers("/api/employee/**").permitAll()
                         .anyRequest().permitAll()
                 )
-                .httpBasic(withDefaults());
+                .httpBasic(withDefaults());*/
         return http.build();
     }
+
+   /* @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf((csrf) -> csrf.disable());
+        return http.build();
+    }*/
 
     // Configuring WebSecurity
     @Bean
