@@ -1,4 +1,4 @@
-package com.microservices.springsecurity;
+package com.microservices.springsecurity.controller;
 
 import com.microservices.springsecurity.exceptions.EmployeeExistException;
 import com.microservices.springsecurity.exceptions.EmployeeNotFoundException;
